@@ -1,17 +1,22 @@
 /*
- * - HTTP-запросы в браузере
- *  - Fetch API
+ * - HTTP-запросы в браузере - в интернете все передается по HTTP протоколу, все в виде текста
+ *  - Fetch API  - для составления запросов к серверу и построен на промисах.
  *  - Владка Network
- *  - HTTP-методы
+ *  - HTTP-методы - GET, POST, PUT и PATCH, DELETE
  *  - Заголовки
  *  - MIME-типы
  *  - Параметры запроса
- * - Документация REST API
+ * - Документация REST API - бекенд построенный по REST-архитектуре. Служит прослойкой между
+ *  клиентом и базой данных. Получаем данные в JSON-формате
  * - Обработка 404 с fetch
  * - Аутентификация
  * - Библиотеки-обёртки
  * - https://pokeapi.co/
  */
+/*json() - парсит данные в JSON-формате.
+text() - парсит данные в простом текстовом формате, например .csv (табличные данные).
+blob() - парсит данные описывающие файл, например изображение, аудио или видео.
+*/
 
 import '../css/common.css';
 import pokemonCardTpl from '../templates/pokemon-card.hbs';
@@ -30,12 +35,12 @@ function onSearch(e) {
 
   API.fetchPokemon(searchQuery)
     .then(renderPokemonCard)
-    .catch(onFetchError)
+    .catch(onFetchError)     
     .finally(() => form.reset());
 }
 
 function renderPokemonCard(pokemon) {
-  const markup = pokemonCardTpl(pokemon);
+  const markup = pokemonCardTpl(pokemon);    
   refs.cardContainer.innerHTML = markup;
 }
 
@@ -45,13 +50,13 @@ function onFetchError(error) {
 
 // =========================================
 
-const url = 'https://newsapi.org/v2/everything?q=cars';
-const options = {
-  headers: {
-    Authorization: '4330ebfabc654a6992c2aa792f3173a3',
-  },
-};
+// const url = 'https://newsapi.org/v2/everything?q=cars';
+// const options = {
+//   headers: {
+//     Authorization: '4330ebfabc654a6992c2aa792f3173a3',
+//   },
+// };
 
-fetch(url, options)
-  .then(r => r.json())
-  .then(console.log);
+// fetch(url, options)
+//   .then(r => r.json())
+//   .then(console.log);
