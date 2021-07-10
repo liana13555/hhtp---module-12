@@ -1,5 +1,5 @@
 /*
- * - Cross-Origin Resource Sharing (CORS)
+ * - Cross-Origin Resource Sharing (CORS) - «совместное использование ресурсов между разными источниками».
  *  - https://pokeapi.co/
  *  - https://darksky.net/dev
  * - Proxy
